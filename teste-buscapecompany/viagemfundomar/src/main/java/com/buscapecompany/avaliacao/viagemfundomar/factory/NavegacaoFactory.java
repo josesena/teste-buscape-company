@@ -1,22 +1,22 @@
 package com.buscapecompany.avaliacao.viagemfundomar.factory;
 
 import com.buscapecompany.avaliacao.viagemfundomar.enumeration.ComandoEnum;
-import com.buscapecompany.avaliacao.viagemfundomar.service.PosicaoService;
-import com.buscapecompany.avaliacao.viagemfundomar.service.impl.DescerSubmarinoImpl;
-import com.buscapecompany.avaliacao.viagemfundomar.service.impl.GirarDireitaImpl;
-import com.buscapecompany.avaliacao.viagemfundomar.service.impl.GirarEsquerdaImpl;
-import com.buscapecompany.avaliacao.viagemfundomar.service.impl.MoverSubmarinoImpl;
-import com.buscapecompany.avaliacao.viagemfundomar.service.impl.SubirSubmarinoImpl;
+import com.buscapecompany.avaliacao.viagemfundomar.service.ProcessaSubService;
+import com.buscapecompany.avaliacao.viagemfundomar.service.impl.DescerSubServiceImpl;
+import com.buscapecompany.avaliacao.viagemfundomar.service.impl.GirarDireitaSubServiceImpl;
+import com.buscapecompany.avaliacao.viagemfundomar.service.impl.GirarEsquerdaSubServiceImpl;
+import com.buscapecompany.avaliacao.viagemfundomar.service.impl.MoverSubServiceImpl;
+import com.buscapecompany.avaliacao.viagemfundomar.service.impl.SubirSubServiceImpl;
 
 public class NavegacaoFactory {
 
-	private static PosicaoService getGirarEsquerda = new GirarEsquerdaImpl();
-	private static PosicaoService getGirarDireita  = new GirarDireitaImpl();
-	private static PosicaoService getMoverSubmarino = new MoverSubmarinoImpl();
-	private static PosicaoService getSubirSubmarino = new SubirSubmarinoImpl();
-	private static PosicaoService getDescerSubmarino = new DescerSubmarinoImpl();
+	private static ProcessaSubService getGirarEsquerda = new GirarEsquerdaSubServiceImpl();
+	private static ProcessaSubService getGirarDireita  = new GirarDireitaSubServiceImpl();
+	private static ProcessaSubService getMoverSubmarino = new MoverSubServiceImpl();
+	private static ProcessaSubService getSubirSubmarino = new SubirSubServiceImpl();
+	private static ProcessaSubService getDescerSubmarino = new DescerSubServiceImpl();
 	
-	public static PosicaoService getPosicaoSubmarino(ComandoEnum comandoEnum){
+	public static ProcessaSubService getPosicaoSubmarino(ComandoEnum comandoEnum){
 		switch (comandoEnum) {
 		case LEFT: return getGirarEsquerda;
 		case RIGHT: return getGirarDireita;
